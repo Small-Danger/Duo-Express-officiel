@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-o566jr&rn6x#+5qfeicdcmbw$-4t_k8vgx8sr!#66*yd1or@g#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['Blandry.pythonanywhere.com']
 
 
 # Application definition
@@ -121,7 +121,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'app/static'),  # Assure-toi de remplacer "monapp" par le nom de ton app
 ]
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 

@@ -11,276 +11,584 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>DUO EXPRESS</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    
-    <style>
-        /* Couleur personnalisée */
-        :root {
-            --primary-color: #ff6f00; /* Orangé foncé comme dans votre style initial */
-            --secondary-color:linear-gradient(90deg, #0b4c92, #0056b3); /* Gradient modern */ /* Bleu sombre pour texte et arrière-plan */
-        }
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f4f4f4;
-        }
-
-        .navbar {
-            background-color: var(--secondary-color);
-        }
-
-        .navbar a {
-            color: white !important;
-        }
-
-        .navbar a:hover {
-            color: var(--primary-color) !important;
-        }
-
-        /* Header */
-        /* Pour L'image du fond au niveau de l'acceuil */
-.background-div {
-    position: relative; /* Pour positionner les pseudo-éléments */
-    width: 100%;
-    height: 230px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white; /* Couleur du texte */
-    overflow: hidden; /* Cache les débordements */
-    background: linear-gradient(90deg, #0b4c92, #0056b3); /* Gradient modern */
-    opacity: 0.99; /* Couleur de fond semi-transparente */
-}
-.background-div::before {
-    content: ''; /* Nécessaire pour un pseudo-élément */
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('{% static "images/duoexpress.webp" %}'); /* Remplace par le chemin de ton image */
-    background-size: 100% 100%; /* Adapte l'image pour qu'elle soit toujours visible */
-    background-repeat: no-repeat;
-    background-position: right; /* Centre l'image */
-    opacity: 0.3; /* Ajuste l'opacité de l'image (entre 0 et 1) */
-    z-index: -1; /* Placer l'image derrière le contenu */
-}
-        /* Flou sur l'image de fond */
-        .header {
-            filter: blur(8px); /* Applique le flou sur l'image de fond */
-            -webkit-filter: blur(8px);
-            transition: filter 0.3s ease;
-        }
-
-        .header h1 {
-            font-size: 4rem;
-            font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-            z-index: 2;
-        }
-
-        .header p {
-            font-size: 1.5rem;
-            z-index: 2;
-            text-shadow: 1px 1px 3px rgba(246, 243, 243, 0.5);
-        }
-
-        /* Services Section */
-        .services .card {
-            border: none;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .services .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .service-img {
-            height: 250px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-
-        .footer {
-            background: linear-gradient(90deg, #0b4c92, #0056b3); /* Gradient modern */
-            color: white;
-            padding: 40px 0;
-        }
-
-        .social-icons a {
-            color: white;
-            font-size: 2rem;
-            margin: 0 15px;
-            transition: color 0.3s;
-        }
-
-        .social-icons a:hover {
-            color: var(--primary-color);
-        }
-
-        .about-us p {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: #333;
-        }
-
- /*       .about-us h2 {
-            color: var(--primary-color);
-        }*/
-
-        /* Navbar Styles */
-.navbar {
-    background: linear-gradient(90deg, #0b4c92, #0056b3); /* Gradient modern */
-    padding: 0.8rem 1rem;
-    transition: all 0.3s ease-in-out;
-}
-
-.navbar-brand {
-    font-size: 1.5rem;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-.navbar-toggler {
-    border: none;
-    outline: none;
-    transition: transform 0.3s ease;
-}
-
-
-.nav-link {
-    font-size: 1rem;
-    transition: color 0.3s ease-in-out;
-}
-
-.nav-link:hover {
-    color: #ffdd00; /* Couleur au survol */
-}
-
-.btn-outline-light {
-    border: 2px solid white;
-    border-radius: 30px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
-
-.btn-outline-light:hover {
-    background-color: white;
-    color: #007BFF;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-    </style>
-</head>
-
-<body>
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" href="#">DUO EXPRESS</a>
-        <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-        >
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <!-- Navigation links -->
-            <ul class="navbar-nav ms-auto mx-auto">
-                <li class="nav-item">
-                    <a class="nav-link text-center" href="#services">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-center" href="#about">À propos</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
 
-</nav>
+</head>
+<style>
+    /* Définition des couleurs personnalisées */
+    :root {
+        --primary-color: #ff6f00; /* Orangé foncé */
+        --secondary-color: linear-gradient(90deg, #0b4c92, #0056b3); /* Gradient bleu */
+    }
+    body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #f4f4f4;
+    }
 
+    /* Navbar Styles */
+    .navbar {
+        background: var(--secondary-color);
+        padding: 0.8rem 1rem;
+        transition: all 0.3s ease-in-out;
+    }
 
+    .navbar-brand {
+        font-size: 1.5rem;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
 
+    .navbar-toggler {
+        border: none;
+        outline: none;
+        transition: transform 0.3s ease;
+    }
 
+    .navbar-nav .nav-link {
+        font-size: 1rem;
+        transition: color 0.3s ease-in-out;
+    }
 
-    <!-- Header Section -->
-    <section class="background-div">
-        <div>
-            <h1 data-aos="fade-up">Bienvenue chez DUO EXPRESS</h1>
-            <p data-aos="fade-up">Votre partenaire logistique pour l'Afrique et au-delà</p>
+    .navbar-nav .nav-link:hover {
+        color: #ffdd00; /* Couleur au survol */
+    }
+
+    /* Header Section */
+    .background-div {
+        position: relative;
+        width: 100%;
+        height: 350px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+        overflow: hidden;
+        background: var(--secondary-color);
+        opacity: 0.99;
+    }
+
+    .background-div::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('{% static "images/duoexpress.webp" %}');
+        background-size: cover;
+        background-position: center;
+        opacity: 0.3;
+        z-index: -1;
+    }
+
+    /* Flou sur l'image de fond */
+    .header {
+        filter: blur(8px);
+        transition: filter 0.3s ease;
+    }
+
+    .header h1 {
+        font-size: 4rem;
+        font-weight: bold;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        z-index: 2;
+    }
+
+    .header p {
+        font-size: 1.5rem;
+        z-index: 2;
+        text-shadow: 1px 1px 3px rgba(246, 243, 243, 0.5);
+    }
+
+    /* Services Section */
+    .services .card {
+        border: none;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+    }
+
+    .services .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .service-img {
+        height: 250px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    /* Footer Section */
+    .footer {
+        background: var(--secondary-color);
+        color: white;
+        padding: 40px 0;
+    }
+
+    .social-icons a {
+        color: white;
+        font-size: 2rem;
+        margin: 0 15px;
+        transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+        color: var(--primary-color);
+    }
+
+    /* Bouton "Voir plus" */
+    .btn-outline-light {
+        border: 2px solid white;
+        border-radius: 30px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+
+    .btn-outline-light:hover {
+        background-color: white;
+        color: #007BFF;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+<body>
+    <style>
+        
+        /* Effet hover sur les liens */
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #ffcc00;
+        }
+        .nav-link:hover::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #ffcc00;
+            transform: scaleX(1);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+    
+        /* Icônes de contact dans le navbar */
+        .navbar-icons {
+            margin-left: 15px;
+            font-size: 1.2rem;
+        }
+    
+        /* Effet d'animation sur l'apparition du navbar */
+        .navbar {
+            transition: all 0.3s ease;
+        }
+        .navbar.scrolled {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+    </style>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top main-navbar" id="mainNavbar">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand" href="#"><img src="{% static 'images/logo.png' %}" alt="DUO EXPRESS " height="40"></a>
+            
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-center" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-center" href="#about">À propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-center" href="#experience">Expérience</a>
+                    </li>
+                </ul>
+    <!-- Bouton de chat flottant -->
+<div class="chat-bubble" id="chatBubble">
+  <i class="bi bi-chat-dots-fill"></i> <!-- Icône de chat (vous pouvez remplacer par une autre icône si besoin) -->
+</div>
+
+<!-- Style CSS pour la bulle de chat -->
+<style>
+  /* Position fixe pour la bulle */
+  .chat-bubble {
+      position: fixed;
+      bottom: 30px; /* Distance du bas de la page */
+      right: 30px; /* Distance du côté droit */
+      background-color: var(--primary-color); /* Couleur de la bulle */
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+      z-index: 1000; /* S'assurer qu'il est au-dessus des autres éléments */
+  }
+
+  /* Effet au survol de la bulle */
+  .chat-bubble:hover {
+      transform: scale(1.1); /* Agrandir légèrement la bulle au survol */
+  }
+
+  /* Icône de chat */
+  .chat-bubble i {
+      font-size: 30px; /* Taille de l'icône */
+  }
+</style>
+
+<!-- Script pour ouvrir le chatbot (à implémenter plus tard) -->
+<script>
+  document.getElementById('chatBubble').addEventListener('click', function() {
+      // Ici, vous pouvez ajouter l'animation ou rediriger vers le chatbot
+      alert("Le chatbot sera implémenté ici !");
+  });
+</script>
+
+                <!-- Icones de contact -->
+                <div class="navbar-icons">
+                    <a href="tel:+123456789" class="text-white me-3"><i class="bi bi-telephone"></i></a>
+                    <a href="https://wa.me/123456789" class="text-white me-3" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                </div>
+            </div>
         </div>
-    </section>
+    </nav>
+    
+    <script>
+        // Ajouter un effet sticky à la navbar
+        window.addEventListener("scroll", function () {
+            const navbar = document.getElementById("mainNavbar");
+            if (window.scrollY > 50) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+        });
+    </script>
+    
+<br>
+<br>
+<br>
+<br>
+
+<style>
+
+
+
+    .hero-section p {
+        font-size: clamp(1rem, 2vw, 1.4rem);
+        font-weight: 500;
+        max-width: 700px;
+        margin: 0 auto;
+        line-height: 1.6;
+        color: #f8f9fa;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 768px) {
+        .hero-section {
+            padding: 10vh 8vw;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero-section {
+            padding: 12vh 10vw;
+            border-radius: 10px;
+        }
+
+        .hero-section h1 {
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 5px rgba(255, 204, 0, 0.2);
+        }
+    }
+</style>
+
+<section class="background-div">
+    <div class="hero-section">
+        <h1 data-aos="fade-up">Bienvenue chez DUO EXPRESS</h1>
+        <p data-aos="fade-up">
+            Votre confiance, notre engagement. Nous transportons vos marchandises en toute sécurité vers la France et plusieurs pays d'Afrique de l'Ouest, avec fiabilité et sérénité.
+        </p>
+    </div>
+</section>
+
 
     <!-- Services Section -->
     <section id="services" class="services py-5" data-aos="fade-up">
-        <div class="container">
-            <h2 class="text-center text-primary mb-5" data-aos="fade-up">Nos Services</h2>
+        <div class="container text-center">
+            <style>
+                h2.text-primary {
+                    font-size: 3rem;
+                    font-weight: 800;
+                    text-transform: uppercase;
+                    letter-spacing: 1.8px;
+                    position: relative;
+                    display: inline-block;
+                    color: #002147;
+                    background: linear-gradient(90deg,rgb(0, 123, 255),rgb(3, 125, 255));
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    padding-bottom: 12px;
+                    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+                    transition: transform 0.3s ease-in-out;
+                }
+            
+                h2.text-primary::after {
+                    content: "";
+                    width: 90px;
+                    height: 4px;
+                    background: linear-gradient(90deg, #ffcc00, #ffaa00);
+                    position: absolute;
+                    bottom: -10px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    border-radius: 10px;
+                    transition: width 0.3s ease-in-out;
+                }
+            
+                h2.text-primary:hover {
+                    transform: scale(1.03);
+                }
+            
+                h2.text-primary:hover::after {
+                    width: 130px;
+                    background: var(--primary-color); 
+                }
+            </style>
+            
+            <h2 class="text-center text-primary mb-5" data-aos="fade-up" data-aos-delay="100">
+                Nos Services
+            </h2>
+            
+            <style>
+                .btn-warning {
+                    font-weight: bold;
+                    transition: all 0.3s ease-in-out;
+                    border-radius: 8px;
+                    padding: 10px 15px;
+                }
+            
+                .btn-warning:hover {
+                    background: linear-gradient(90deg, #ffcc00, #ff9900);
+                    transform: scale(1.05);
+                    box-shadow: 0px 5px 15px rgba(255, 153, 0, 0.4);
+                }
+                .btn{
+                    background:var(--primary-color); 
+                }
+            </style>
+            
             <div class="row g-4">
+                <!-- Transport Aérien -->
                 <div class="col-md-6 col-lg-3" data-aos="fade-up">
                     <div class="card text-center">
-                        <img src="{% static 'images/avion.jpg' %}" alt="Transport aérien" class="card-img-top service-img">
+                        <img src="{% static 'images/avion.jpg' %}" alt="Fret Aérien" class="card-img-top service-img">
                         <div class="card-body">
-                            <h5 class="card-title" data-aos="fade-up">Transport aérien</h5>
-                            <p class="card-text" data-aos="fade-up">Expéditions rapides et fiables vers l'Afrique et au-delà.</p>
-                            <a href="{% url "avion" %}" class="btn btn-warning">Disponible <i class="bi bi-chevron-double-right fa-1x"></i></a>
+                            <h5 class="card-title" data-aos="fade-up">Fret Aérien Rapide</h5>
+                            <p class="card-text" data-aos="fade-up">Livraison express vers le Burkina Faso, la Côte d’Ivoire, le Sénégal, le Mali et la Guinée Conakry.</p>
+                            <a href="{% url 'avion' %}" class="btn btn-warning">Voir plus <i class="bi bi-chevron-double-right"></i></a>
                         </div>
                     </div>
                 </div>
+            
+                <!-- Transport Maritime -->
                 <div class="col-md-6 col-lg-3" data-aos="fade-up">
                     <div class="card text-center">
-                        <img src="{% static "images/bateaux.webp" %}" alt="Transport maritime" class="card-img-top service-img">
+                        <img src="{% static 'images/bateaux.webp' %}" alt="Transport maritime" class="card-img-top service-img">
                         <div class="card-body">
-                            <h5 class="card-title" data-aos="fade-up">Transport maritime</h5>
-                            <p class="card-text" data-aos="fade-up">Efficacité et fiabilité dans nos services maritimes entre le Maroc et la France.</p>
-                            <a href="{% url "bateau" %}" class="btn btn-warning">Disponible <i class="bi bi-chevron-double-right fa-1x"></i></a>
+                            <h5 class="card-title" data-aos="fade-up">Fret Maritime Sécurisé</h5>
+                            <p class="card-text" data-aos="fade-up">Expéditions fiables entre le Maroc et la France avec un suivi rigoureux.</p>
+                            <a href="{% url 'bateau' %}" class="btn btn-warning">Voir plus <i class="bi bi-chevron-double-right"></i></a>
                         </div>
                     </div>
                 </div>
+            
+                <!-- Achat de Billets d'Avion -->
                 <div class="col-md-6 col-lg-3" data-aos="fade-up">
+                    <div class="card text-center">
+                        <img src="{% static 'images/billets.webp' %}" alt="Billetterie aérienne" class="card-img-top service-img">
+                        <div class="card-body">
+                            <h5 class="card-title" data-aos="fade-up">Billetterie Aérienne</h5>
+                            <p class="card-text" data-aos="fade-up">Trouvez vos billets aux meilleurs prix pour voyager sereinement.</p>
+                            <a href="{% url 'billet' %}" class="btn btn-warning">Voir plus <i class="bi bi-chevron-double-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Achat International -->
+                <div class="col-md-6 col-lg-3" data-aos="fade-up">
+                    <div class="card text-center">
+                        <img src="{% static 'images/achat-inter.webp' %}" alt="Achat et expédition" class="card-img-top service-img">
+                        <div class="card-body">
+                            <h5 class="card-title" data-aos="fade-up">Achat & Expédition</h5>
+                            <p class="card-text" data-aos="fade-up">Commandez et recevez vos articles du Maroc en toute simplicité.</p>
+                            <a href="{% url 'achat' %}" class="btn btn-warning">Voir plus <i class="bi bi-chevron-double-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       <!-- <div class="col-md-6 col-lg-3" data-aos="fade-up">
                     <div class="card text-center">
                         <img src="{% static "images/exchange.webp" %}" alt="Échange de devises" class="card-img-top service-img">
                         <div class="card-body">
                             <h5 class="card-title" data-aos="fade-up">Échange de devises</h5>
                             <p class="card-text" data-aos="fade-up">Des services d'échange sûrs et rapides.</p>
-                            <a href="{% url "calculatrice" %}" class="btn btn-warning">Disponible <i class="bi bi-chevron-double-right fa-1x"></i></a>
+                            <a href="{% url "calculatrice" %}" class="btn btn-warning">Voir plus <i class="bi bi-chevron-double-right fa-1x"></i></a>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-3" data-aos="fade-up">
-                    <div class="card text-center">
-                        <img src="{% static "images/achat-inter.webp" %}" alt="Achat international" class="card-img-top service-img">
-                        <div class="card-body">
-                            <h5 class="card-title" data-aos="fade-up">Achat à l'international</h5>
-                            <p class="card-text" data-aos="fade-up">Simplifiez vos achats internationaux avec notre aide.</p>
-                            <a href="{% url "achat" %}" class="btn btn-warning">Disponible <i class="bi bi-chevron-double-right fa-1x"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </div> -->
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about-us py-5 bg-light" data-aos="fade-up">
-        <div class="container">
-            <h2 class="text-center mb-4 text-primary" data-aos="fade-up">À propos de DUO EXPRESS</h2>
-            <div class="row justify-content-center">
-                <div class="col-md-8 col-lg-6" data-aos="fade-up">
-                    <p>Nous sommes une équipe de jeunes passionnés, engagés à faciliter les échanges commerciaux et logistiques. Depuis trois ans, nous mettons notre expertise au service des particuliers et des entreprises, en assurant des solutions rapides et adaptées à vos besoins spécifiques.</p>
-                    <p>Notre mission est de simplifier le processus d'import-export, d'échanges de devises, et plus encore, en proposant des services de qualité, fiables, et performants pour tous vos besoins logistiques.</p>
+<!-- About Section -->
+<section id="about" class="about-us py-5 bg-light" data-aos="fade-up">
+    <div class="container">
+        <h2 class="text-center mb-4 text-primary" data-aos="fade-up">À propos de DUO EXPRESS</h2>
+        <div class="row align-items-center">
+            <div class="col-md-6" data-aos="fade-right">
+                <img src="{% static 'images/duoexpress.webp' %}" alt="DUO EXPRESS" class="img-fluid rounded shadow">
+            </div>
+            <div class="col-md-6" data-aos="fade-left">
+                <p class="lead">Nous sommes une équipe d'experts passionnés, dédiés à faciliter les échanges commerciaux et logistiques entre le Maroc et l'Afrique de l'Ouest.</p>
+                <p>Depuis plus de trois ans, nous avons accompagné de nombreux particuliers et entreprises en leur proposant des solutions rapides, sécurisées et adaptées à leurs besoins spécifiques.</p>
+                <p>Notre mission est d'optimiser vos importations, exportations et échanges financiers en garantissant efficacité, fiabilité et satisfaction.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Expérience -->
+<section id="experience" class="py-5 bg-white">
+    <div class="container text-center">
+        <h2 class="text-primary">Notre Expérience</h2><br><br>
+        <p class="mb-4">Avec plus de 3 ans d'expérience, nous avons accompagné des centaines de clients dans leurs projets logistiques.</p>
+        <div class="row g-4">
+            <div class="col-md-4" data-aos="fade-up">
+                <div class="card border-0 shadow-sm p-4">
+                    <h3 class="text-primary">+500</h3>
+                    <p>Commandes livrées avec succès</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="card border-0 shadow-sm p-4">
+                    <h3 class="text-primary">+200</h3>
+                    <p>Clients satisfaits</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="card border-0 shadow-sm p-4">
+                    <h3 class="text-primary">5</h3>
+                    <p>Pays couverts</p>
                 </div>
             </div>
         </div>
-    </section>
+        <div class="mt-5">
+            <a href="#services" class="btn btn-primary btn-lg px-5 py-3 shadow-lg fw-bold rounded-pill" style="font-size: 1.5rem;">🚀 Découvrez nos services maintenant !</a>
+            <p class="mt-3 text-muted">Profitez de notre expertise dès aujourd'hui.</p>
+        </div>
+    </div>
+</section>
+<style>
+    /* Style général */
+    body {
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    /* Section "À propos" */
+    .about-us {
+        background: linear-gradient(to right, #f8f9fa, #e9ecef);
+        padding: 80px 0;
+    }
+    
+    .about-us h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #007bff;
+    }
+    
+    .about-us img {
+        max-width: 100%;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .about-us p {
+        font-size: 1.1rem;
+        color: #555;
+        line-height: 1.7;
+    }
+    
+    /* Section "Expérience" */
+    #experience {
+        background: #fff;
+        padding: 80px 0;
+    }
+    
+    #experience h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #007bff;
+    }
+    
+    #experience .card {
+        background: #f8f9fa;
+        border-radius: 12px;
+        text-align: center;
+        transition: all 0.3s ease-in-out;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    #experience .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    #experience h3 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #007bff;
+    }
+    
+    #experience p {
+        font-size: 1.1rem;
+        color: #555;
+    }
+    
+    .btn-primary {
+        background: #007bff;
+        border: none;
+        padding: 12px 24px;
+        font-size: 1.2rem;
+        border-radius: 8px;
+        transition: background 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+        background: #0056b3;
+    }
+    </style>
     
 
     <!-- Footer Section -->
@@ -295,10 +603,14 @@
             <p>&copy; 2025 DUO EXPRESS</p>
         </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
-    <script src="transport Maritime/scritp4.js"></script>
+
+
+
+    
 </body>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+<script src="transport Maritime/scritp4.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>
     AOS.init();

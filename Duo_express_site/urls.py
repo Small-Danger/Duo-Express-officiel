@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app.views import home,transport_aerien,transport_bateau,calculatrice,achat_international
+from app.views import home,transport_aerien,transport_bateau,calculatrice,achat_international,achat_billet
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +25,6 @@ urlpatterns = [
     path('bateau',transport_bateau,name='bateau'),
     path('calcul',calculatrice,name='calculatrice'),
     path('achat',achat_international,name='achat'),
+    path('billet',achat_billet,name='billet'),
+   # path('whatsapp/<int:service_id>/', whatsapp_redirect, name='whatsapp_redirect'),
 ]
